@@ -6,17 +6,24 @@ import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 
 const Index = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!name.trim()) {
+      toast.error('Please enter your name');
+      return;
+    }
+
     if (!email || !email.includes('@')) {
       toast.error('Please enter a valid email address');
       return;
     }
 
-    toast.success("Thank you! We'll notify you when we launch.");
+    toast.success(`Thank you, ${name}! We'll notify you when we launch.`);
+    setName('');
     setEmail('');
   };
 
@@ -38,6 +45,13 @@ const Index = () => {
           </p>
           
           <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto space-y-4">
+            <Input 
+              type="text" 
+              placeholder="Enter your name" 
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-3 border-2 border-primary-purple rounded-lg"
+            />
             <Input 
               type="email" 
               placeholder="Enter your email for early access" 
