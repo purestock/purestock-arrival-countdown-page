@@ -1,78 +1,52 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Clock } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { toast } from 'sonner';
 
 const Index = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!name.trim()) {
-      toast.error('Please enter your name');
-      return;
-    }
-
-    if (!email || !email.includes('@')) {
-      toast.error('Please enter a valid email address');
-      return;
-    }
-
-    toast.success(`Thank you, ${name}! We'll notify you when we launch.`);
-    setName('');
-    setEmail('');
-  };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-soft-green relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618160702438-9b02ab6515c9')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518495973542-4542c06a5843')] bg-cover bg-center opacity-10"></div>
       
-      <div className="z-10 text-center max-w-2xl mx-auto px-4 relative">
-        <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-2xl animate-scale-in">
-          <Clock className="mx-auto mb-6 text-primary-purple w-16 h-16 animate-pulse" />
-          
-          <h1 className="text-5xl font-bold mb-4 text-dark-purple">
-            Pure Stock
-          </h1>
-          
-          <p className="text-xl text-neutral-gray mb-6 leading-relaxed">
-            Organic goodness, delivered fresh to your doorstep. 
-            We're curating the finest organic produce to nourish your lifestyle.
-          </p>
-          
-          <div className="text-2xl font-semibold text-primary-purple mb-6 animate-pulse">
-            Coming Soon
+      <div className="z-10 text-center w-full max-w-4xl mx-auto px-4 relative">
+        <div className="bg-white/80 backdrop-blur-sm rounded-xl p-12 shadow-2xl animate-scale-in">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <Clock className="mx-auto mb-8 text-primary-purple w-20 h-20 animate-pulse" />
+              
+              <h1 className="text-6xl font-bold mb-6 text-dark-purple">
+                Pure Stock
+              </h1>
+              
+              <p className="text-2xl text-neutral-gray mb-8 leading-relaxed">
+                Organic goodness, delivered fresh to your doorstep. 
+                We're curating the finest organic produce to nourish your lifestyle.
+              </p>
+              
+              <div className="text-3xl font-semibold text-primary-purple animate-pulse">
+                Coming Soon
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07" 
+                  alt="Organic produce" 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9" 
+                  alt="Fresh produce" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
           
-          <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto space-y-4">
-            <Input 
-              type="text" 
-              placeholder="Enter your name" 
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full p-3 border-2 border-primary-purple rounded-lg"
-            />
-            <Input 
-              type="email" 
-              placeholder="Enter your email for early access" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 border-2 border-primary-purple rounded-lg"
-            />
-            <Button 
-              type="submit" 
-              className="w-full bg-primary-purple hover:bg-secondary-purple text-white py-3 rounded-lg transition-colors"
-            >
-              Notify Me
-            </Button>
-          </form>
-          
-          <p className="mt-4 text-sm text-neutral-gray">
-            Join our community and be the first to know when we launch!
+          <p className="mt-8 text-lg text-neutral-gray">
+            Join our journey towards sustainable and healthy living.
           </p>
         </div>
       </div>
