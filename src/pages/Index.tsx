@@ -16,7 +16,7 @@ const Index = () => {
       return;
     }
 
-    toast.success('Thank you! We'll notify you when we launch.');
+    toast.success("Thank you! We'll notify you when we launch.");
     setEmail('');
   };
 
