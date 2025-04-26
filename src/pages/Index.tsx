@@ -44,6 +44,10 @@ const Index = () => {
             We're curating the finest organic produce to nourish your lifestyle.
           </p>
           
+          <div className="text-2xl font-semibold text-primary-purple mb-6 animate-pulse">
+            Coming Soon
+          </div>
+          
           <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto space-y-4">
             <Input 
               type="text" 
